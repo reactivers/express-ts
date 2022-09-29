@@ -1,0 +1,17 @@
+version: '3'
+services:
+  backend:
+    restart: always
+    depends_on:
+      - postgres
+    build:
+      context: ./
+    links:
+      - postgres
+    ports:
+      - "4500:8000"
+    container_name: reactivers-backend
+    env_file:
+      - .env.production
+volumes:
+  postgres-data:

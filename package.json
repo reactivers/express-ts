@@ -1,0 +1,61 @@
+{
+  "name": "@reactivers/express-ts",
+  "version": "1.0.0",
+  "description": "Express, typescript, unit test",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "rm -rf build && npx tsc",
+    "start": "NODE_ENV=production node ./dist/server",
+    "dev": "NODE_ENV=development npx nodemon ./src/index.ts",
+    "test": "NODE_ENV=test mocha --require ts-node/register src/test/index.ts --timeout 10000 --exit"
+  },
+  "bugs": {
+    "url": "https://github.com/reactivers/express-ts/issues",
+    "email": "support@reactivers.com"
+  },
+  "homepage": "https://github.com/reactivers/express-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactivers/express-ts"
+  },
+  "bin": {
+    "@reactivers/express-ts": "./bin/index.js"
+  },
+  "keywords": [
+    "express",
+    "typescript",
+    "docker",
+    "boilerplate",
+    "create node app"
+  ],
+  "author": "Reactivers",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/chai-http": "^4.2.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/guid": "^1.0.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/mocha": "^9.1.1",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.6.3",
+    "@types/node-fetch": "^2.6.2",
+    "body-parser": "^1.18.3",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^10.0.0",
+    "morgan": "^1.10.0",
+    "node-fetch": "2",
+    "ts-node": "^10.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "typescript": "^4.7.3"
+  }
+}
