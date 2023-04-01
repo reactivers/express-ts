@@ -1,14 +1,9 @@
 {
   "name": "@reactivers/express-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "private": false,
   "description": "Express, typescript, unit test",
-  "main": "src/index.ts",
-  "scripts": {
-    "build": "rm -rf build && npx tsc",
-    "start": "NODE_ENV=production node ./dist/server",
-    "dev": "NODE_ENV=development npx nodemon ./src/index.ts",
-    "test": "NODE_ENV=test mocha --require ts-node/register src/test/index.ts --timeout 10000 --exit"
-  },
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/reactivers/express-ts/issues",
     "email": "support@reactivers.com"
@@ -28,9 +23,17 @@
     "boilerplate",
     "create node app"
   ],
-  "author": "Reactivers",
-  "license": "MIT",
-  "private": false,
+  "main": "src/index.ts",
+  "scripts": {
+    "rimraf": "npx rimraf",
+    "build": "npm run rimraf build && npx tsc",
+    "start": "NODE_ENV=production node ./dist/server",
+    "dev": "NODE_ENV=development npx nodemon ./src/index.ts",
+    "test": "NODE_ENV=test mocha --require ts-node/register src/test/index.ts --timeout 10000 --exit",
+    "lint": "npx eslint src --ext .ts --fix",
+    "format": "npx prettier --write \"src/**/*.{ts,tsx}\"",
+    "prepare": "husky install"
+  },
   "dependencies": {
     "@types/chai": "^4.3.1",
     "@types/chai-http": "^4.2.0",
@@ -41,7 +44,7 @@
     "@types/mocha": "^9.1.1",
     "@types/morgan": "^1.9.3",
     "@types/node": "^18.6.3",
-    "@types/node-fetch": "^2.6.2",
+    "axios": "^1.3.4",
     "body-parser": "^1.18.3",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
@@ -51,10 +54,15 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^10.0.0",
     "morgan": "^1.10.0",
-    "node-fetch": "2",
     "ts-node": "^10.8.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "8.18.0",
+    "husky": "^8.0.3",
     "nodemon": "^2.0.16",
     "typescript": "^4.7.3"
   }
