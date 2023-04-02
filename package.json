@@ -1,6 +1,6 @@
 {
   "name": "@reactivers/express-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Express, typescript, unit test",
   "license": "ISC",
