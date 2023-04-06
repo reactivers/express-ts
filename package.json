@@ -1,6 +1,6 @@
 {
   "name": "@reactivers/express-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "Express, typescript, unit test",
   "license": "ISC",
@@ -25,13 +25,13 @@
   ],
   "main": "src/index.ts",
   "scripts": {
-    "rimraf": "npx rimraf",
+    "rimraf": "npx -y rimraf",
     "build": "npm run rimraf build && npx tsc",
     "start": "NODE_ENV=production node ./dist/server",
     "dev": "NODE_ENV=development npx nodemon ./src/index.ts",
     "test": "NODE_ENV=test mocha --require ts-node/register src/test/index.ts --timeout 10000 --exit",
-    "lint": "npx eslint src --ext .ts --fix",
-    "format": "npx prettier --write \"src/**/*.{ts,tsx}\"",
+    "lint": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -62,8 +62,11 @@
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "eslint": "8.18.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "nodemon": "^2.0.16",
+    "prettier": "^2.8.7",
     "typescript": "^4.7.3"
   }
 }

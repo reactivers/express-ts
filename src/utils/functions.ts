@@ -7,9 +7,14 @@ const getTokenExpireDuration = () => 24 * 60 * 60 * 1000;
 export const isTest = () => getNodeEnv() === NODE_ENV_ENUM.TEST;
 export const isProd = () => getNodeEnv() === NODE_ENV_ENUM.PRODUCTION;
 
-export const getAppSecret = () => process.env.APP_SECRET!;
-export const getNodeEnv: () => NODE_ENV_ENUM = () =>
-  process.env.NODE_ENV! as NODE_ENV_ENUM;
+export const getAppSecret = () => {
+  if (!process.env.APP_SECRET) throw Error("APP_SECRET is not defined");
+  return process.env.APP_SECRET;
+};
+export const getNodeEnv: () => NODE_ENV_ENUM = () => {
+  if (!process.env.NODE_ENV) throw Error("NODE_ENV is not defined");
+  return process.env.NODE_ENV as NODE_ENV_ENUM;
+};
 
 export const verifyJWT = (token: string): Promise<{ data: IJWTToken }> => {
   return new Promise((resolve, reject) => {
